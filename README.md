@@ -2,6 +2,6 @@
 
 Sistema feito para controle dos seus medicamentos e comparações medicamentosas
 
-#Tecnologias utilizadas
+# Tecnologias utilizadas
 - Python
 - Django
