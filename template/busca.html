@@ -1,0 +1,43 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+  <div class="container">
+    <form method="GET" action="{% url 'buscaMed' %}" style="margin-top: 15px;
+    margin-left: -4em;">
+        <div class="form-row align-items-center">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button class="input-group-text" id="inputGroup-sizing-default">Buscar</button>
+                    <input type="text" name="pesquisa" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" style="width: 26em;">
+                </div>
+            </div>
+        </div>
+    </form>
+
+<div class="container" style="max-width: 53em;
+    margin-left: -5em;">
+               <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Medicamento</th>
+      <th scope="col">Comparação</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for objs in obj %}
+    <form action="{% url 'cadAnalise' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="usuario" value="{{ user.id }}" hidden>
+    <tr>
+      <td><input type="text" value="{{ objs.id }}" name="remedio" readonly style="border:none;outline:none;width:30px;"></td>
+      <td>{{ objs.nome_cientifico }}</td>
+      <td><button class="btn btn-primary">Adicionar</button></td>
+    </tr>
+    </form>
+    {% endfor %}
+  </tbody>
+</table>
+
+</div></div>

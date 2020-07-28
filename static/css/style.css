@@ -1,0 +1,168 @@
+body{
+
+    background-image: url('../img/bgbody.jpeg') !important;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: black;
+}
+
+.textcont{
+
+color: #5d2f7d !important;
+font-weight: bold;
+font-size: 30px;
+
+}
+
+.linklogin{
+
+    text-decoration: none !important;
+
+}
+
+.linklogin:hover{
+
+    color:#000000 !important;
+}
+
+.entrarr{
+
+font-size: 1px;
+
+}
+
+.textconta{
+
+color: #ffffff !important;
+font-weight: bold;
+font-size: 30px;
+
+}
+
+.container{
+
+    background-color: white !important;
+}
+
+
+.bgnav{
+
+    background-color: #FFFFFF !important;
+    color: #5d2f7d !important;
+}
+
+.bgnav a{
+
+    color: #5d2f7d !important;
+    font-weight: bold !important;
+    font-size: 30px !important;
+}
+
+.bgnav ul li{
+
+    padding-left:15px !important;
+}
+
+
+.btn-info {
+
+    background-color: #5d2f7d !important;
+    border:none;
+
+}
+
+.stdes{
+
+    color: #5519b0 !important;
+    font-weight: bold;
+}
+
+.destext{
+
+    font-style: italic !important;
+}
+
+.btn-info:hover{
+
+    background-color: #6f325c !important;
+}
+
+.bgnav ul li a{
+
+    font-weight: normal !important;
+    font-size: 16px !important;
+}
+
+.bgnav ul li a:link{
+
+    color:#5d2f7d  !important;
+}
+
+.bgnav ul li a:hover{
+
+    background-color:#5d2f7d !important;
+    color:#FFFFFF !important;
+    border-radius: 20px 0px 5px 0px;
+}
+
+
+.imgtog{
+
+    width:40px !important;
+    height:40px !important;
+
+}
+
+.divcard{
+
+    margin-left:10px;
+    margin-right:10px;
+    width:25rem;
+}
+
+.bgfot{
+    background-size: 100%;
+    width:100%;
+    height:50px;
+    background-color:#5d2f7d;
+    color:#FFFFFF;
+    padding:15px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white !important;
+}
+
+.bgabout{
+
+    background-image: url('bgsobrecont.jpg') !important;
+    background-size: 100% !important;
+    background-position: right !important;
+    background-repeat: no-repeat !important;
+    width:100% !important;
+
+}
+
+.list-group-flush{
+
+    background-color: #FFFFFF !important;
+}
+
+
+
+
+
+
+
+@media(max-width: 990px){
+
+.bgnav ul li a:hover{
+
+    background-color:#5d2f7d !important;
+    color:#FFFFFF !important;
+    border-radius: 5px;
+}
+
+}
+

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Diario Saúde</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/component1.css' %}">
+
+    <style>
+        body{
+            background-image: url('../static/img/enfermeiro.jpg');
+        }
+        .btn-primary:hover{
+            background-color: white;
+            color:#007bff;
+        }
+        .btn-danger{
+            float: right;
+        }
+        .btn-danger:hover{
+            background-color: white;
+            color: #dc3545;
+        }
+    </style>
+
+</head>
+<body>
+  <div class="row justify-content-md-center">
+    <div class="col-lg-5 col-md-9" style="background-color: white; padding: 3%; border-radius: 10px; box-shadow: 3px 3px 3px #ccc">
+    <form class="form-signin" action="{% url 'cadastro' %}" method="POST">
+    {% csrf_token %}
+      <h2 style="text-transform: uppercase">Faça seu cadastro</h2>
+      <div class="form-group">
+        <label>Usuário</label>
+        {{ form.username }}
+      </div>
+      <div class="form-group">
+        <label>Endereço de Email</label>
+        {{ form.email }}
+        <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu email com mais ninguém.</small>
+      </div>
+      <div class="form-group">
+        <label>Senha</label>
+        {{ form.password }}
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+        <label class="form-check-label" for="exampleCheck1">Concordo com os termos. Visualizar os <a href="../static/pdf_sistema/Termos.pdf" target="_blank">Termos de uso</a></label>
+      </div>
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+      <a href="{% url 'login' %}" class="btn btn-danger">Voltar login</a>
+    </form>
+    </div>
+  </div>
+    <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

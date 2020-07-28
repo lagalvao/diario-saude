@@ -1,0 +1,46 @@
+ <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Agenda</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form action="{% url 'insereAgenda' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="usuario" value="{{ user.id }}" hidden>
+    <div class="form-group">
+      <label>Titulo</label>
+      <input type="text" class="form-control" name="titulo" required>
+    </div>
+     <div class="form-group">
+        <label>Cor</label>
+        <select name="cor" class="form-control" id="cor" required>
+            <option value="">Selecione</option>
+            <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
+            <option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>
+            <option style="color:#FF4500;" value="#FF4500">Laranja</option>
+            <option style="color:#8B4513;" value="#8B4513">Marrom</option>
+            <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
+            <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
+            <option style="color:#A020F0;" value="#A020F0">Roxo</option>
+            <option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>
+            <option style="color:#228B22;" value="#228B22">Verde</option>
+            <option style="color:#8B0000;" value="#8B0000">Vermelho</option>
+        </select>
+    </div>
+         <div class="form-row">
+  <div class="form-group col-md-6">
+    <label>Data Inicial</label>
+    <input type="date" name="data_inicio" class="form-control" required>
+  </div>
+             <div class="form-group col-md-6">
+    <label>Data Final</label>
+    <input type="date" class="form-control" name="data_fim" required>
+  </div>
+         </div>
+  <button type="submit" class="btn btn-primary">Adicionar Evento</button>
+</form>
+         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+</div>

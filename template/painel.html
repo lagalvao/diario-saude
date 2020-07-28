@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Diário Saúde</title>
+        <link rel="icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="{% static 'css_painel/normalize.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css_painel/demo.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css_painel/component.css' %}" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="{% static 'js_painel/modernizr.custom.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.6/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.6/css/dx.light.compact.css" />
+    <script src="https://cdn3.devexpress.com/jslib/19.1.6/js/dx.all.js"></script>
+    <link href="{% static 'bootstrap/css/fullcalendar.min.css' %}" rel='stylesheet' />
+    <link href="{% static 'bootstrap/css/fullcalendar.print.min.css' %}" rel='stylesheet' media='print' />
+    <link href="{% static 'bootstrap/css/personalizado.css' %}" rel='stylesheet' />
+    <script src="{% static 'bootstrap/js/moment.min.js' %}"></script>
+		<script src="{% static 'bootstrap/js/fullcalendar.min.js' %}"></script>
+		<script src="{% static 'bootstrap/locale/pt-br.js' %}"></script>
+    <script src="//code.jivosite.com/widget.js" data-jv-id="2qwdsRCp6K" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0-rc.1/Chart.min.js"></script>
+
+  <script src="{% static 'graficos/samples/utils.js' %}"></script>
+  <script src="{% static 'graficos/test/utils.js' %}"></script>
+</head>
+<body>
+
+    <div class="container" style="margin-top: -70px;">
+			<ul id="gn-menu" class="gn-menu-main">
+				<li class="gn-trigger">
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu">
+								<li>
+									<a class="gn-icon gn-icon-download" data-toggle="modal" data-target="#modalAnalise">Analise</a>
+								</li>
+								<li><a class="gn-icon gn-icon-cog" href="{% url 'editar' %}" data-toggle="modal" data-target="#modalPerfil" >Perfil</a></li>
+								<li><a class="gn-icon gn-icon-article" href="{% url 'agenda' %}">Agenda</a></li>
+								<li><a class="gn-icon gn-icon-archive" data-toggle="modal" data-target="#modalHistorico">Historico</a></li>
+								 <li><a class="gn-icon gn-icon-pictures" href="{% url 'visitante' %}">Site</a></li>
+                                <li><a class="gn-icon gn-icon-videos" data-toggle="modal" data-target="#suporte">Suporte</a></li>
+                 				<li><a class="gn-icon gn-icon-help" data-toggle="modal" data-target="">Ajuda</a></li>
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
+				<li><a href="{% url 'painel' %}">ÍNICIO</a></li>
+
+				<li><a class="codrops-icon codrops-icon-drop" href="{% url 'home' %}"><span>Sair</span></a></li>
+			</ul>
+			<header>
+			<h1><b>Diário Saúde</b></h1>
+			<p>Ferramenta utilizada para comparação e controle de medicamentos.</p>
+            <p>Acompanhar alguns assunto em pauta pelo ministerio da saúde.</p>
+
+            <!-- carousel -->
+
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <iframe class="d-block w-100" width="460" height="415" src="https://www.youtube.com/embed/0VfldCZszdQ" frameborder="0" alt="Primeiro Slide" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="carousel-item">
+      <iframe class="d-block w-100" width="460" height="415" src="https://www.youtube.com/embed/uw7cDZIzF1g" frameborder="0" alt="Segundo Slide" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="carousel-item">
+      <iframe class="d-block w-100" width="460" height="415" src="https://www.youtube.com/embed/R9Z5SYvwjmA" frameborder="0" alt="Terceiro Slide" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Próximo</span>
+  </a>
+</div>
+ <!-- fim carousel -->
+			</header>
+		</div>
+    <!-- /container -->
+
+	<!-- Modal Analise -->
+
+	<div id="modalAnalise" class="modal fade bd-example-modal-lg" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="width: 64em;">
+            <div class="modal-header">
+              <h4 class="modal-title">Comparativo de medicamentos</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+  <h2>Comparação</h2>
+
+  <ul class="nav nav-tabs" style="width: 59em;">
+    <li class="active"><a data-toggle="tab" href="#comparativo">Comparativo</a></li>
+    <li><a data-toggle="tab" href="#grafico">Gráfico</a></li>
+    <li><a data-toggle="tab" href="#info">Informativo</a></li>
+  </ul>
+
+<!-- busca-->
+  <div class="tab-content">
+    <div id="comparativo" class="tab-pane fade in active">
+        <div class="container">
+          <button class="btn btn-primary" onclick="Janela()" style="margin-top: 20px;margin-bottom: 20px;margin-left:270px;">Adicione medicamentos</button>
+             <div class="row">
+                      {% csrf_token %}
+                 {% for objs in obj %}
+                  <div class="col-md-3">
+                    <div class="card">
+  <div class="card-header">
+      {{ objs.nome_cientifico }}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{ objs.grupo_farmacoI }}</li>
+    <li class="list-group-item">{{ objs.grupo_farmacoII }}</li>
+    <li class="list-group-item">{{ objs.farmacos }}</li>
+    <li class="list-group-item">{{ objs.classificacao }}</li>
+    <li class="list-group-item">{{ objs.efeito }}</li>
+    <li class="list-group-item">{{ objs.intensidade }}</li>
+  </ul>
+</div>
+                  </div>
+                 {% endfor %}
+              </div>
+        </div>
+    </div>
+<!--grafico-->
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+	</style>
+    <div id="grafico" class="tab-pane fade">
+
+        <h3>Gráfico Automedicação</h3>
+
+<div id="canvas-holder" style="width:70%">
+		<canvas id="chart-area"></canvas>
+    <h4>Não ingerir medicamentos sem o aconselhamento e/ou acompanhamento de um profissional de saúde qualificado.</h4>
+	</div>
+	<!--<button id="randomizeData">Randomize Data</button>
+	<button id="addData">Add Data</button>
+	<button id="removeData">Remove Data</button>-->
+	<script>
+		var randomScalingFactor = function() {
+			return Math.round(Math.random() * 100);
+		};
+
+		var chartColors = window.chartColors;
+		var color = Chart.helpers.color;
+		var config = {
+			data: {
+				datasets: [{
+					data: [
+						48,
+						20,
+						13,
+						8,
+						3,
+					],
+					backgroundColor: [
+						color(chartColors.red).alpha(0.5).rgbString(),
+						color(chartColors.orange).alpha(0.5).rgbString(),
+						color(chartColors.yellow).alpha(0.5).rgbString(),
+						color(chartColors.green).alpha(0.5).rgbString(),
+						color(chartColors.blue).alpha(0.5).rgbString(),
+					],
+					label: 'My dataset' // for legend
+				}],
+				labels: [
+					'Analgésico: 48%',
+					'Anti-Inflamatorio: 20%',
+					'Antialérgicos: 13%',
+					'Antibióticos: 8%',
+					'Ansiolíticos(tarja-preta): 3%'
+				]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					position: 'right',
+				},
+				title: {
+					display: true,
+					text: 'Amostragem Gráfica'
+				},
+				scale: {
+					ticks: {
+						beginAtZero: true
+					},
+					reverse: false
+				},
+				animation: {
+					animateRotate: false,
+					animateScale: true
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('chart-area');
+			window.myPolarArea = Chart.PolarArea(ctx, config);
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			config.data.datasets.forEach(function(piece, i) {
+				piece.data.forEach(function(value, j) {
+					config.data.datasets[i].data[j] = randomScalingFactor();
+				});
+			});
+			window.myPolarArea.update();
+		});
+
+		var colorNames = Object.keys(window.chartColors);
+		document.getElementById('addData').addEventListener('click', function() {
+			if (config.data.datasets.length > 0) {
+				config.data.labels.push('data #' + config.data.labels.length);
+				config.data.datasets.forEach(function(dataset) {
+					var colorName = colorNames[config.data.labels.length % colorNames.length];
+					dataset.backgroundColor.push(window.chartColors[colorName]);
+					dataset.data.push(randomScalingFactor());
+				});
+				window.myPolarArea.update();
+			}
+		});
+		document.getElementById('removeData').addEventListener('click', function() {
+			config.data.labels.pop(); // remove the label first
+			config.data.datasets.forEach(function(dataset) {
+				dataset.backgroundColor.pop();
+				dataset.data.pop();
+			});
+			window.myPolarArea.update();
+		});
+	</script>
+
+    </div>
+
+
+    <!--fim grafico-->
+<!-- informativo -->
+    <div id="info" class="tab-pane fade">
+      <h3>Automedicação</h3>
+      <p style="text-align: justify; ">Automedicação após uma dor de cabeça ou febre. Pedir indicação, para amigos,<br> de medicamentos para ingestão em determinadas ocasiões. Pesquisar na Internet <br> tratamentos para algum sintoma que esteja sentindo. </p><p style="text-align: justify; ">Todos os exemplos acima são casos de um dos maiores problemas de saúde <br>pública no Brasil e no mundo:    a automedicação.  Vista como uma solução para o<br> alívio imediato de sintomas, pode trazer consequências graves para o organismo<br> humano.</p><p style="text-align: justify; ">O uso de medicamentos de forma incorreta pode acarretar o agravamento de<br> uma doença, uma vez que a utilização inadequada pode esconder determinados<br> sintomas. Se o remédio for antibiótico, a atenção deve ser sempre redobrada. O uso <br>abusivo destes produtos pode facilitar o aumento da resistência de<br> microorganismos, o que compromete a eficácia dos tratamentos.</p><p style="text-align: justify; ">Pesquisa realizada pelo Instituto de Pesquisa e Pós-Graduação para o<br> Mercado Farmacêutico (ICTQ), em 2017, aproximadamente 72% dos brasileiros<br> optam pela automedicação e 40% procuram diagnósticos pela internet. </p>
+    </div>
+  </div><h4>Procure sempre um Médico.</h4>
+</div>
+            </div>
+            <div class="modal-footer">
+                    <a href="{% url 'exAnalise' %}" class="btn btn-default" >Finalizar Comparação</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+	<!-- Fim Modal Analise -->
+	<!-- Fim Modal Analise -->
+
+	<!-- Perfil -->
+    <div class="modal fade" id="modalPerfil" role="dialog">
+        <div class="modal-dialog">
+            {% include 'perfil.html' %}
+        </div>
+    </div>
+	<!-- Perfil -->
+
+    <!-- Historico -->
+    <div class="modal fade" id="modalHistorico" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Histórico de Comparações</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Medicamento</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for objs2 in obj2 %}
+    <tr>
+        <th scope="row">{{ objs2.id }}</th>
+        <td>{{ objs2.nome_cientifico }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- Fim do historico -->
+
+    <!-- suporte -->
+
+    <!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="suporte" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Suporte</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <a href="https://download.anydesk.com/AnyDesk.exe?_ga=2.19881016.1254629746.1573336903-1832367717.1573336903"><img src="{% static 'img/anydesk-logo-40fe6c.svg' %}"></a>
+          <h5>Clique para baixar o software de suporte do sistema, para efetuar um acesso remoto.</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- suporte -->
+
+	{% block painel %}
+
+
+
+    {% endblock %}
+
+        <script>
+            function Janela(){
+			jan1 = window.open("{% url 'buscaMed' %}","Janela Pesquisa","toolbar=yes,directories=no,resizable=no,scrollbars=yes,status=yes,width=750,height=400,top=250,left=630");
+		}
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script type="{% static 'js_painel/modal.js' %}"></script>
+        <script src="{% static 'js_painel/classie.js' %}"></script>
+		<script src="{% static 'js_painel/gnmenu.js' %}"></script>
+		<script>
+			new gnMenu( document.getElementById( 'gn-menu' ) );
+		</script>
+</body>
+</html>
